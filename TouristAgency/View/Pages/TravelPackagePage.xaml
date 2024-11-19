@@ -1,0 +1,40 @@
+﻿<Page x:Class="TouristAgency.View.Pages.TravelPackagePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:TouristAgency.View.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="444" d:DesignWidth="960"
+      Title="TravelPackagePage">
+
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="20"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <CheckBox Name="HotCb" Content="Горящие путёвки" FontSize="18" VerticalAlignment="Center" VerticalContentAlignment="Center" Checked="HotCb_Checked" Unchecked="HotCb_Unchecked"/>
+            <CheckBox Name="ExcursionCb" Grid.Column="2" Content="С экскурсиями" FontSize="18" VerticalAlignment="Center" VerticalContentAlignment="Center" Checked="ExcursionCb_Checked" Unchecked="ExcursionCb_Unchecked"/>
+        </Grid>
+        <ListView x:Name="TravelPackageLv" Grid.Row="2" FontSize="18" Foreground="Black">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Маршрут" DisplayMemberBinding="{Binding Route}"/>
+                    <GridViewColumn Header="Стоимость" DisplayMemberBinding="{Binding Price}"/>
+                    <GridViewColumn Header="Способ перемещения" DisplayMemberBinding="{Binding WayMoving.Title}"/>
+                    <GridViewColumn Header="Место проживания" DisplayMemberBinding="{Binding PlaceResidence.Title}"/>
+                    <GridViewColumn Header="Время отправления" DisplayMemberBinding="{Binding DepartureTime}"/>
+                    <GridViewColumn Header="Время возвращения" DisplayMemberBinding="{Binding ReturnTime}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</Page>
